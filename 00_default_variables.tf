@@ -27,3 +27,19 @@ variable "user" {
 	type = "string"
 	default = "terraform"  
 }
+
+variable "public_key" {
+	type = "string"
+	default = "~/.ssh/id_rsa.pub"
+}
+
+variable "private_key" {
+	type = "string"
+	default = "~/.ssh/id_rsa" 
+} 
+
+variable "scripts" {
+	default = [
+		"scripts/install_server_script"
+	]
+}

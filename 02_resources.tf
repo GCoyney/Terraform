@@ -15,18 +15,16 @@ resource "google_compute_instance" "default" {
 	}
 
 	metadata {
-		sshKeys = "${var.user}:${file("~/.ssh/id_rsa.pub")}"
+		sshKeys = "${var.user}:${file("${var.public_key}")}"
 
 	}
 	provisioner "remote-exec" {
 		connection = {
 			type = "ssh"
-			user = "terraform"
-			private_key = "${file("~/.ssh/id_rsa")}"
+			user = "${var.user}"
+			private_key = "${file("${var.private_key}")}"
 		}
-		scripts = [
-			"scripts/install_server_script"
-		]
+		scripts = "${var.scripts}"
 	}
 
 }
