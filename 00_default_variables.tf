@@ -40,6 +40,32 @@ variable "private_key" {
 
 variable "scripts" {
 	default = [
-		"scripts/install_server_script"
+		"scripts/test1"
 	]
 }
+
+variable "packages" {
+	default = [
+		"wget",
+		"unzip",
+		"nano"
+	]
+}
+
+variable "update_packages" {
+	default = {
+		"yum" = "sudo yum update -y"
+		"apt" = "sudo apt update && sudo apt upgrade -y"
+	}
+}
+
+variable "install_packages" {
+	default = {
+		"yum" = "sudo yum install -y"
+		"apt" = "sudo apt install -y"
+	}
+}
+
+variable "package_manager" {
+	default = "yum"
+} 

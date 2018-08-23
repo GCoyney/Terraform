@@ -2,7 +2,6 @@
 
 sudo yum update -y
 sudo yum install -y apache2
-sudo yum install -y nano
 sudo yum install -y git
 sudo useradd jenkins
 git clone https://github.com/bob-crutchley/python-systemd-http-server.git && cd python-systemd-http-server

@@ -27,4 +27,24 @@ resource "google_compute_instance" "default" {
 		scripts = "${var.scripts}"
 	}
 
+	provisioner "remote-exec" {
+                connection = {
+                        type = "ssh"
+                        user = "${var.user}"
+                        private_key = "${file("${var.private_key}")}"
+                }
+                scripts = "${var.scripts}"
+    	}
+
+	provisioner "remote-exec" {
+		connection = {
+			type = "ssh"
+			user = "${var.user}"
+			private_key = "${file("${var.private_key}")}"
+		}
+		inline = [
+			"${lookup(var.update_packages, var.package_manager)}",
+			"${lookup(var.install_packages, var.package_manager)} ${join(" ", var.packages)}"
+		]
+	}
 }
