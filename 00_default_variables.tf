@@ -69,3 +69,17 @@ variable "install_packages" {
 variable "package_manager" {
 	default = "yum"
 } 
+
+variable "allowed_ports" {
+	default = [
+		"22",
+		"9000",
+		"8080"
+	]
+}
+
+variable "tags" {
+	default = [
+		"defaulttag"
+	]
+}
