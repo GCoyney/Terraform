@@ -1,3 +1,8 @@
+#Machine boot packages
+sudo yum install -y git
+sudo yum install -y zip
+sudo yum install -y nano
+
 #Install wget
 sudo yum install -y wget
 #Install java

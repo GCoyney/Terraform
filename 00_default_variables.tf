@@ -83,3 +83,11 @@ variable "tags" {
 		"defaulttag"
 	]
 }
+
+variable "project_id" {
+	default = "eastern-gearbox-214108"
+} 
+
+variable "credentials" {
+	default = "/home/vagrant/project/keys/terraform_key.json"
+}

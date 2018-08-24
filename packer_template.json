@@ -1,0 +1,22 @@
+{
+	"builders": [
+    		{
+			"type": "googlecompute",
+      			"account_file": "/home/vagrant/project/keys/terraform_key.json",
+      			"project_id": "eastern-gearbox-214108",
+			"source_image": "centos-7-v20180815",
+			"source_image_family": "centos-7",
+			"ssh_username": "default",
+			"zone": "europe-west2-c",
+			"image_name": "george-centos-{{timestamp}}"
+    		}
+	
+	],
+	"provisioners": [
+		{
+		"type": "shell",
+		"inline": "sudo yum update -y",
+		"scripts": "/home/vagrant/project/Terraform/scripts/install_jenkins"
+		}
+	]
+}
